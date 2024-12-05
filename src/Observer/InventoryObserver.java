@@ -1,6 +1,6 @@
 
-
 package Observer;
+import Composite.Product;
 
 
 public interface InventoryObserver {

@@ -1,4 +1,7 @@
 package Observer;
+
+import Composite.Product;
+
 public class StockObserver implements InventoryObserver {
     @Override
     public void update(Product product) {
