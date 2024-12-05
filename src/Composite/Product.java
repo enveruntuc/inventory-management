@@ -3,10 +3,12 @@ package Composite;
 public class Product extends InventoryComponent {
     private String name;
     private int quantity;
+    private int ID;
 
-    public Product(String name, int quantity) {
+    public Product(String name, int quantity, int ID) {
         this.name = name;
         this.quantity = quantity;
+        this.ID = ID;
     }
 
     @Override
@@ -20,5 +22,9 @@ public class Product extends InventoryComponent {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public int getID() {
+        return ID;
     }
 }
