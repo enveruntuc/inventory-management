@@ -1,30 +1,50 @@
 package Composite;
 
-public class Product extends InventoryComponent {
+public class Product {
+    private int id;
     private String name;
-    private int quantity;
-    private int ID;
+    private double price;
+    private int quantity;  // Yeni quantity özelliği ekliyoruz
 
-    public Product(String name, int quantity, int ID) {
+    // Constructor (id, name, price, quantity şeklinde parametre sırasını düzelttik)
+    public Product(int id, String name, double price, int quantity) {
+        this.id = id;
         this.name = name;
-        this.quantity = quantity;
-        this.ID = ID;
-    }
-
-    @Override
-    public void display() {
-        System.out.println("Product: " + name + ", Quantity: " + quantity);
-    }
-
-    public void setQuantity(int quantity) {
+        this.price = price;
         this.quantity = quantity;
     }
+    
 
+    // Getter for ID
+    public int getId() {
+        return id;
+    }
+
+    // Getter for Name
+    public String getName() {
+        return name;
+    }
+
+    // Getter for Price
+    public double getPrice() {
+        return price;
+    }
+
+    // Getter for Quantity
     public int getQuantity() {
         return quantity;
     }
 
-    public int getID() {
-        return ID;
+    // Setter for Quantity
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    // Display product details
+    public void display() {
+        System.out.println("Product ID: " + id);
+        System.out.println("Product Name: " + name);
+        System.out.println("Product Price: " + price);
+        System.out.println("Product Quantity: " + quantity);  // Quantity de gösteriliyor
     }
 }

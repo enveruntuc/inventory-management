@@ -1,12 +1,12 @@
 package Singleton;
 
+import Composite.Product;          // Composite paketinden Product sınıfı import edilmiştir.
+import Observer.InventorySubject;  // Observer paketinden InventorySubject sınıfı import edilmiştir.
+import Observer.InventoryObserver;
 import java.util.ArrayList;
 import java.util.List;
 
-import Composite.Product;
-import Observer.*;
-
-public class Inventory extends InventorySubject{
+public class Inventory extends InventorySubject {
     private static Inventory inventory;
     private static List<Product> products;
 
@@ -15,47 +15,49 @@ public class Inventory extends InventorySubject{
     }
 
     public static synchronized Inventory getInstance() {
-        if(inventory == null) 
+        if (inventory == null) 
             inventory = new Inventory();
-
         return inventory;
     }
 
-    public static void addProduct(Product product) {
-        if(products.indexOf(product) != -1) {
+    public void addProduct(Product product) {
+        if (products.stream().noneMatch(p -> p.getId() == product.getId())) {
             products.add(product);
+            System.out.println("Product added: " + product.getName());
+        } else {
+            System.out.println("Product already exists.");
         }
     }
 
-    public static void updateProductQuantity(int productID, int quantity) {
-        for(Product p : products) {
-            if(p.getID() == productID) {
+    public void updateProductQuantity(int productId, int quantity) {
+        for (Product p : products) {
+            if (p.getId() == productId) {
                 p.setQuantity(quantity);
-                inventory.notifyObservers(p);
+                notifyObservers(p);
             }
         }
     }
 
-    public static void removeProduct(int productID) {
-        for(Product p : products) {
-            if (p.getID() == productID) {
-                products.remove(p);
+    public void removeProduct(int productId) {
+        Product productToRemove = null;
+        for (Product p : products) {
+            if (p.getId() == productId) {
+                productToRemove = p;
+                break;
             }
+        }
+
+        if (productToRemove != null) {
+            products.remove(productToRemove);
+            System.out.println("Product removed: " + productToRemove.getName());
+        } else {
+            System.out.println("Product not found.");
         }
     }
 
-    public static void checkStock(int productID) {
-        for(Product p : products) {
-            if(p.getID() == productID) { 
-                int temp = p.getQuantity();
-
-                if(temp > 0) {
-                    System.out.println("Stock quantity is " + temp);
-                } else {
-                    System.out.println("This product is no longer in stock.");
-                }
-            }
+    public void displayProducts() {
+        for (Product p : products) {
+            p.display();
         }
     }
-
 }

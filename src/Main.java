@@ -1,20 +1,60 @@
-import Composite.Category;
 import Composite.Product;
-
-import java.util.PrimitiveIterator;
+import Composite.Category;
+import Singleton.Inventory;
+import Observer.StockObserver;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-       Product banana =  new Product("banana",50,1);
-       Product apple = new Product("apple",50,2);
-       Product orange = new Product("orange",50,3);
+        Inventory inventory = Inventory.getInstance();
 
-        Category fruit = new Category("Fruit");
-        fruit.add(banana);
-        fruit.add(apple);
-        fruit.add(orange);
+        // We add StockObserver to inventory
+        StockObserver stockObserver = new StockObserver();
+        inventory.attach(stockObserver);
 
-        fruit.display();
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("\nWelcome to the Inventory Management System");
+            System.out.println("1. Add Product");
+            System.out.println("2. Remove Product");
+            System.out.println("3. Display Products");
+            System.out.println("4. Exit");
 
+            System.out.print("Select an option: ");
+            int choice = scanner.nextInt();
+
+            if (choice == 1) {
+                System.out.print("Enter product ID: ");
+                int id = scanner.nextInt();
+                System.out.print("Enter product name: ");
+                String name = scanner.next();
+                System.out.print("Enter product price: ");
+                double price = scanner.nextDouble();
+                System.out.print("Enter product quantity: ");
+                int quantity = scanner.nextInt();
+                
+                // Create the product
+                Product product = new Product(id, name, price, quantity);
+                
+                inventory.addProduct(product);
+            } 
+            else if (choice == 2) {
+                System.out.print("Enter product ID to remove: ");
+                int id = scanner.nextInt();
+                inventory.removeProduct(id);
+            } 
+            else if (choice == 3) {
+                inventory.displayProducts();
+            } 
+            else if (choice == 4) {
+                System.out.println("Exiting...");
+                break;
+            } 
+            else {
+                System.out.println("Invalid choice, please try again.");
+            }
+        }
+
+        scanner.close();
     }
 }
