@@ -36,6 +36,7 @@ public class Inventory extends InventorySubject {
         } else {
             if(products.stream().noneMatch(p -> p.getId() == product.getId())){
                 products.add(product);
+                System.out.println("Category with id: " + product.getId() + "and name: " + ((Category) product).getName() + " was added.");
             }
             else {
                 System.out.println("Category already exists.");
@@ -67,6 +68,26 @@ public class Inventory extends InventorySubject {
         }
     }
 
+    public Category getCategoryById(int itemId) {
+        for(InventoryComponent p : products) {
+            if(p.getId() == itemId && p instanceof Category) {
+                return (Category) p;
+            }
+        }
+
+        return null;
+    }
+
+    public Product getProductById(int itemId) {
+        for(InventoryComponent p : products) {
+            if(p.getId() == itemId && p instanceof Product) {
+                return (Product) p;
+            }
+        }
+
+        return null;
+    }
+
     public void displayAllProducts() {
         if (products.isEmpty()) {
             System.out.println("No products in inventory.");
@@ -77,6 +98,19 @@ public class Inventory extends InventorySubject {
         for (InventoryComponent p : products) {
             p.display();
         }
+    }
+
+    public void displayCategories() {
+        if(products.isEmpty()) {
+            System.out.println("No items in inventory yet.");
+            return;
+        }
+
+        for(InventoryComponent p : products) {
+            if (p instanceof Category) {
+                p.display();
+            }
+        } 
     }
 
     public void displayProductById(int productId) {
