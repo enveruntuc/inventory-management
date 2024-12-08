@@ -1,6 +1,6 @@
 package Composite;
 
-public class Product {
+public class Product extends InventoryComponent {
     private int id;
     private String name;
     private double price;
@@ -15,32 +15,28 @@ public class Product {
     }
     
 
-    // Getter for ID
+
     public int getId() {
         return id;
     }
 
-    // Getter for Name
+
     public String getName() {
         return name;
     }
 
-    // Getter for Price
+
     public double getPrice() {
         return price;
     }
-
-    // Getter for Quantity
     public int getQuantity() {
         return quantity;
     }
-
-    // Setter for Quantity
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
-    // Display product details
+
     public void display() {
         System.out.println("Product ID: " + id);
         System.out.println("Product Name: " + name);

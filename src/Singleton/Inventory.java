@@ -1,5 +1,7 @@
 package Singleton;
 
+import Composite.Category;
+import Composite.InventoryComponent;
 import Composite.Product;
 import Observer.InventoryObserver;
 import Observer.InventorySubject;
@@ -9,6 +11,7 @@ import java.util.List;
 public class Inventory extends InventorySubject {
     private static Inventory inventory;
     private static List<Product> products;
+    private static List<Category> categories;
 
     private Inventory() { 
         products = new ArrayList<>();
@@ -24,7 +27,7 @@ public class Inventory extends InventorySubject {
         if (products.stream().noneMatch(p -> p.getId() == product.getId())) {
             products.add(product);
             System.out.println("Product added: " + product.getName());
-            notifyObservers(product); // Notify observers when a product is added
+            notifyObservers(product);
         } else {
             System.out.println("Product already exists.");
         }
@@ -42,7 +45,7 @@ public class Inventory extends InventorySubject {
         if (productToRemove != null) {
             products.remove(productToRemove);
             System.out.println("Product removed: " + productToRemove.getName());
-            notifyObservers(productToRemove); // Notify observers when a product is removed
+            notifyObservers(productToRemove);
         } else {
             System.out.println("Product not found.");
         }
@@ -70,7 +73,12 @@ public class Inventory extends InventorySubject {
         }
         System.out.println("Product not found with ID: " + productId);
     }
+    public void addCategory(Category category) {
+        categories.add(category);
+        System.out.println("Category added:" + category);
+    }
     public List<InventoryObserver> getObservers() {
         return getObservers();
     }
+
 }
