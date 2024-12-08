@@ -125,6 +125,7 @@ public class Inventory extends InventorySubject {
         }
     }
 
+    @Override
     public List<InventoryObserver> getObservers() {
         return super.getObservers();
     }

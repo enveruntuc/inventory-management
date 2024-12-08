@@ -43,16 +43,19 @@ public class Main {
                         int quantity = scanner.nextInt();
                         scanner.nextLine();
 
-                        System.out.println("Which category would you like to add this product? (Enter its id from list below)");
+                        System.out.println("Which category would you like to add this product? (Enter its id from list below, if no category desired enter 0)");
                         inventory.displayCategories();
                         int categoryId = scanner.nextInt();
 
                         Product product = new Product(id, name, price, quantity);
                         inventory.addProduct(product);
                        
-                        Category temp = inventory.getCategoryById(categoryId);
-                        temp.add(product);
-                        product.addCategory(temp);
+                        
+                        if(categoryId != 0) {
+                            Category temp = inventory.getCategoryById(categoryId);
+                            temp.add(product);
+                            product.addCategory(temp);
+                        }
                     }else if(check == 2) {
                         Category product = new Category(id, name);
                         inventory.addProduct(product);
