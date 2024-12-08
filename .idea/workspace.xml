@@ -7,7 +7,6 @@
     <list default="true" id="ba92b139-1997-49fc-a536-3e9fc7e1d0d2" name="Changes" comment="edited observer package and added composite pattern files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Observer/InventorySubject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Observer/InventorySubject.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +52,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/macbook/Desktop/untitled folder/inventory-management",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -87,6 +87,7 @@
       <workItem from="1733415589564" duration="3433000" />
       <workItem from="1733419039056" duration="1541000" />
       <workItem from="1733422013478" duration="1710000" />
+      <workItem from="1733666609894" duration="1014000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
