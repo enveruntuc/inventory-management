@@ -1,6 +1,7 @@
 package Singleton;
 
 import Composite.Product;
+import Observer.InventoryObserver;
 import Observer.InventorySubject;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,5 +69,8 @@ public class Inventory extends InventorySubject {
             }
         }
         System.out.println("Product not found with ID: " + productId);
+    }
+    public List<InventoryObserver> getObservers() {
+        return getObservers();
     }
 }

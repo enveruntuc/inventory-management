@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba92b139-1997-49fc-a536-3e9fc7e1d0d2" name="Changes" comment="edited observer package and added composite pattern files">
+    <list default="true" id="ba92b139-1997-49fc-a536-3e9fc7e1d0d2" name="Changes" comment="edited main">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Observer/StockObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Observer/StockObserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Singleton/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Singleton/Inventory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +89,7 @@
       <workItem from="1733415589564" duration="3433000" />
       <workItem from="1733419039056" duration="1541000" />
       <workItem from="1733422013478" duration="1710000" />
-      <workItem from="1733666609894" duration="1014000" />
+      <workItem from="1733666609894" duration="7092000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -121,7 +123,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733421750023</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="edited main">
+      <option name="closed" value="true" />
+      <created>1733668898822</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1733668898822</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,6 +142,7 @@
     <MESSAGE value="Structured files" />
     <MESSAGE value="Designed observer pattern for automated calls" />
     <MESSAGE value="edited observer package and added composite pattern files" />
-    <option name="LAST_COMMIT_MESSAGE" value="edited observer package and added composite pattern files" />
+    <MESSAGE value="edited main" />
+    <option name="LAST_COMMIT_MESSAGE" value="edited main" />
   </component>
 </project>
