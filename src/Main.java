@@ -8,10 +8,6 @@ public class Main {
     public static void main(String[] args) {
         Inventory inventory = Inventory.getInstance();
 
-
-        StockObserver stockObserver = new StockObserver("enver","untuç",22);
-        inventory.attach(stockObserver);
-
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -47,8 +43,16 @@ public class Main {
                         int quantity = scanner.nextInt();
                         scanner.nextLine();
 
+                        System.out.println("Which category would you like to add this product? (Enter its id from list below)");
+                        inventory.displayCategories();
+                        int categoryId = scanner.nextInt();
+
                         Product product = new Product(id, name, price, quantity);
                         inventory.addProduct(product);
+                       
+                        Category temp = inventory.getCategoryById(categoryId);
+                        temp.add(product);
+                        product.addCategory(temp);
                     }else if(check == 2) {
                         Category product = new Category(id, name);
                         inventory.addProduct(product);
@@ -84,7 +88,7 @@ public class Main {
                     String customerSurname = scanner.nextLine();
                     System.out.println("Enter Observer ID: ");
                     int customerId = scanner.nextInt();
-                    stockObserver = new StockObserver(customerName, customerSurname, customerId);
+                    StockObserver stockObserver = new StockObserver(customerName, customerSurname, customerId);
                     inventory.attach(stockObserver);
                     break;
 
