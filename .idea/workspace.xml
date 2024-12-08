@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba92b139-1997-49fc-a536-3e9fc7e1d0d2" name="Changes" comment="edited observers" />
+    <list default="true" id="ba92b139-1997-49fc-a536-3e9fc7e1d0d2" name="Changes" comment="hot fix">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,7 +87,7 @@
       <workItem from="1733419039056" duration="1541000" />
       <workItem from="1733422013478" duration="1710000" />
       <workItem from="1733666609894" duration="7092000" />
-      <workItem from="1733675394532" duration="1220000" />
+      <workItem from="1733675394532" duration="11922000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -135,7 +137,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733675478440</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="hot fix">
+      <option name="closed" value="true" />
+      <created>1733680469652</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1733680469652</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +158,7 @@
     <MESSAGE value="edited observer package and added composite pattern files" />
     <MESSAGE value="edited main" />
     <MESSAGE value="edited observers" />
-    <option name="LAST_COMMIT_MESSAGE" value="edited observers" />
+    <MESSAGE value="hot fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="hot fix" />
   </component>
 </project>

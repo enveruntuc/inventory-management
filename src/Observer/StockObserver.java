@@ -26,6 +26,6 @@ public class StockObserver implements InventoryObserver {
     }
     @Override
     public void update(Product product) {
-        System.out.println("Stock Updated: " + product.getQuantity() + " units of " + product.getName() +"  ----   "+ "notified customer" + getName() +" " + getSurname());
+        System.out.println("Stock Updated: " + product.getQuantity() + " units of " + product.getName() +"  ----   "+ "notified customer " + getName() +" " + getSurname());
     }
 }
