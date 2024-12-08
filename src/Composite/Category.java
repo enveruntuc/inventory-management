@@ -1,4 +1,5 @@
 package Composite;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,11 @@ public class Category extends InventoryComponent {
     @Override
     public void remove(InventoryComponent component) {
         components.remove(component);
+    }
+
+    @Override
+    public InventoryComponent getChild(int index) {
+        return components.get(index);
     }
 
     @Override

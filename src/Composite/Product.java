@@ -4,9 +4,9 @@ public class Product {
     private int id;
     private String name;
     private double price;
-    private int quantity;  // Yeni quantity özelliği ekliyoruz
+    private int quantity;  // We add new quantity property
 
-    // Constructor (id, name, price, quantity şeklinde parametre sırasını düzelttik)
+    
     public Product(int id, String name, double price, int quantity) {
         this.id = id;
         this.name = name;
@@ -45,6 +45,6 @@ public class Product {
         System.out.println("Product ID: " + id);
         System.out.println("Product Name: " + name);
         System.out.println("Product Price: " + price);
-        System.out.println("Product Quantity: " + quantity);  // Quantity de gösteriliyor
+        System.out.println("Product Quantity: " + quantity);  
     }
 }

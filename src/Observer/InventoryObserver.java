@@ -1,7 +1,6 @@
-
 package Observer;
-import Composite.Product;
 
+import Composite.Product;
 
 public interface InventoryObserver {
     void update(Product product);

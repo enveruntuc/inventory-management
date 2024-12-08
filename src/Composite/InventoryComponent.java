@@ -1,6 +1,5 @@
 package Composite;
 
-
 public abstract class InventoryComponent {
     public void add(InventoryComponent component) {
         throw new UnsupportedOperationException();
