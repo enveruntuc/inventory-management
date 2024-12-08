@@ -7,7 +7,8 @@ public class Category extends InventoryComponent {
     private String name;
     private List<InventoryComponent> components = new ArrayList<>();
 
-    public Category(String name) {
+    public Category(int id, String name) {
+        super(id);
         this.name = name;
     }
 
@@ -29,8 +30,10 @@ public class Category extends InventoryComponent {
     @Override
     public void display() {
         System.out.println("Category: " + name);
-        for (InventoryComponent component : components) {
-            component.display();
+        if(!components.isEmpty()) {
+            for (InventoryComponent component : components) {
+                component.display();
+            }
         }
     }
 }

@@ -1,6 +1,16 @@
 package Composite;
 
 public abstract class InventoryComponent {
+    private int id;
+
+    public InventoryComponent(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
     public void add(InventoryComponent component) {
         throw new UnsupportedOperationException();
     }

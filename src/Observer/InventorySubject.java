@@ -5,7 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class InventorySubject {
-    private List<InventoryObserver> observers = new ArrayList<>();
+    private List<InventoryObserver> observers;
+
+    public InventorySubject() {
+        observers = new ArrayList<>();
+    }
 
     public void attach(InventoryObserver observer) {
         observers.add(observer);
@@ -13,6 +17,10 @@ public abstract class InventorySubject {
 
     public void detach(InventoryObserver observer) {
         observers.remove(observer);
+    }
+
+    public List<InventoryObserver> getObservers() {
+        return observers;
     }
 
     public void notifyObservers(Product product) {

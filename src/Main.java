@@ -1,4 +1,4 @@
-import Composite.Product;
+import Composite.*;
 import Singleton.Inventory;
 import Observer.StockObserver;
 import java.util.Scanner;
@@ -16,9 +16,9 @@ public class Main {
 
         while (true) {
             System.out.println("\nWelcome to the Inventory Management System");
-            System.out.println("1. Add Product");
-            System.out.println("2. Remove Product");
-            System.out.println("3. Display Products");
+            System.out.println("1. Add Item");
+            System.out.println("2. Remove Item");
+            System.out.println("3. Display Item");
             System.out.println("4. Add Stock Observer");
             System.out.println("5. Remove Stock Observer");
             System.out.println("6. Exit");
@@ -29,36 +29,41 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    System.out.print("Enter product ID: ");
+                    System.out.println("Product? (True/False) ");
+                    boolean check = scanner.nextBoolean();
+
+                    System.out.print("Enter item ID: ");
                     int id = scanner.nextInt();
                     scanner.nextLine(); // Clear the buffer
 
-                    System.out.print("Enter product name: ");
+                    System.out.print("Enter item name: ");
                     String name = scanner.nextLine(); // Now allows multi-word input
 
-                    System.out.print("Enter product price: ");
-                    double price = scanner.nextDouble();
+                    if(check){
+                        System.out.print("Enter item price: ");
+                        double price = scanner.nextDouble();
 
-                    System.out.print("Enter product quantity: ");
-                    int quantity = scanner.nextInt();
-                    scanner.nextLine();
+                        System.out.print("Enter item quantity: ");
+                        int quantity = scanner.nextInt();
+                        scanner.nextLine();
 
-
-                    Product product = new Product(id, name, price, quantity);
-
-                    inventory.addProduct(product);
-
+                        Product product = new Product(id, name, price, quantity);
+                        inventory.addProduct(product);
+                    }else {
+                        Category product = new Category(id, name);
+                        inventory.addProduct(product);
+                    }
 
                     break;
 
                 case 2:
                     System.out.print("Enter product ID to remove: ");
                     int removeId = scanner.nextInt();
-                    inventory.removeProduct(removeId);
+                    inventory.removeItem(removeId);
                     break;
 
                 case 3:
-                    System.out.print("Do you want to display a specific product by ID? (yes/no): ");
+                    System.out.print("Do you want to display a specific item by ID? (yes/no): ");
                     String response = scanner.nextLine().trim().toLowerCase();
 
                     if (response.equals("yes")) {
@@ -71,27 +76,31 @@ public class Main {
                     break;
 
                 case 4:
-                    System.out.println("Enter Observer Name:");
+                    System.out.println("Enter Observer Name: ");
                     String customerName = scanner.nextLine();
-                    System.out.println("Enter Observer Surname:");
+                    System.out.println("Enter Observer Surname: ");
                     String customerSurname = scanner.nextLine();
-                    System.out.println("Enter Observer ID:");
+                    System.out.println("Enter Observer ID: ");
                     int customerId = scanner.nextInt();
                     stockObserver = new StockObserver(customerName, customerSurname, customerId);
                     inventory.attach(stockObserver);
                     break;
 
                 case 5:
-                    System.out.println("Enter Observer ID to Remove:");
+                    System.out.println("Enter Observer ID to Remove: ");
                     int removeCustomerId = scanner.nextInt();
-                    inventory.getObservers().removeIf(o -> {
+                    boolean temp = inventory.getObservers().removeIf(o -> {
                         if (o instanceof StockObserver) {
                             return ((StockObserver) o).getId() == removeCustomerId;
                         }
                         return false;
                     });
 
-                    System.out.println("Observer with ID " + removeCustomerId + " removed (if existed).");
+                    if(temp) {
+                        System.out.println("Observer with ID '" + removeCustomerId + "' removed.");
+                    }else {
+                        System.out.println("Could not find the observer with ID '" + removeCustomerId + "'.");
+                    }
                     break;
 
                 case 6:

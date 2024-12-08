@@ -10,10 +10,10 @@ import java.util.List;
 
 public class Inventory extends InventorySubject {
     private static Inventory inventory;
-    private static List<Product> products;
-    private static List<Category> categories;
+    private static List<InventoryComponent> products;
 
     private Inventory() { 
+        super();
         products = new ArrayList<>();
     }
 
@@ -23,31 +23,47 @@ public class Inventory extends InventorySubject {
         return inventory;
     }
 
-    public void addProduct(Product product) {
-        if (products.stream().noneMatch(p -> p.getId() == product.getId())) {
-            products.add(product);
-            System.out.println("Product added: " + product.getName());
-            notifyObservers(product);
+    public void addProduct(InventoryComponent product) {
+        if(product instanceof Product){
+            Product product2 = (Product) product;
+            if (products.stream().noneMatch(p -> p.getId() == product2.getId())) {
+                products.add(product2);
+                System.out.println("Product added: " + product2.getName());
+                notifyObservers(product2);
+            } else {
+                System.out.println("Product already exists.");
+            }
         } else {
-            System.out.println("Product already exists.");
+            if(products.stream().noneMatch(p -> p.getId() == product.getId())){
+                products.add(product);
+            }
+            else {
+                System.out.println("Category already exists.");
+            }
         }
     }
 
-    public void removeProduct(int productId) {
-        Product productToRemove = null;
-        for (Product p : products) {
-            if (p.getId() == productId) {
+    public void removeItem(int itemId) {
+        InventoryComponent productToRemove = null;
+        for (InventoryComponent p : products) {
+            if (p.getId() == itemId) {
                 productToRemove = p;
                 break;
             }
         }
 
         if (productToRemove != null) {
-            products.remove(productToRemove);
-            System.out.println("Product removed: " + productToRemove.getName());
-            notifyObservers(productToRemove);
+            if(productToRemove instanceof Product){
+                Product temp = (Product) productToRemove;
+                products.remove(productToRemove);
+                System.out.println("Product removed: " + temp.getName());
+                notifyObservers(temp);
+            }else if(productToRemove instanceof Category) {
+                products.remove(productToRemove);
+                System.out.println("Category with id no. " + itemId + " is deleted..");
+            }
         } else {
-            System.out.println("Product not found.");
+            System.out.println("Product could not be found..");
         }
     }
 
@@ -58,27 +74,25 @@ public class Inventory extends InventorySubject {
         }
         
         System.out.println("All Products in Inventory:");
-        for (Product p : products) {
-            System.out.println("ID: " + p.getId() + ", Name: " + p.getName());
+        for (InventoryComponent p : products) {
+            p.display();
         }
     }
 
     public void displayProductById(int productId) {
-        for (Product p : products) {
-            if (p.getId() == productId) {
-                System.out.println("Product Details:");
-                p.display(); // Assuming Product has a display method
-                return;
+        if(products.stream().noneMatch(p -> p.getId() == productId)) {
+            System.out.println("No product found..");
+        }else {
+            for(InventoryComponent p : products) {
+                if(p.getId() == productId) {
+                    p.display();
+                }
             }
         }
-        System.out.println("Product not found with ID: " + productId);
     }
-    public void addCategory(Category category) {
-        categories.add(category);
-        System.out.println("Category added:" + category);
-    }
+
     public List<InventoryObserver> getObservers() {
-        return getObservers();
+        return super.getObservers();
     }
 
 }
