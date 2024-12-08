@@ -36,6 +36,7 @@ public class Inventory extends InventorySubject {
         } else {
             if(products.stream().noneMatch(p -> p.getId() == product.getId())){
                 products.add(product);
+                System.out.println("Category with id: " + product.getId() + "and name: " + ((Category) product).getName() + " was added.");
             }
             else {
                 System.out.println("Category already exists.");

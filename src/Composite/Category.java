@@ -12,6 +12,10 @@ public class Category extends InventoryComponent {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+    
     @Override
     public void add(InventoryComponent component) {
         components.add(component);

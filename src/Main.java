@@ -29,8 +29,8 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    System.out.println("Product? (True/False) ");
-                    boolean check = scanner.nextBoolean();
+                    System.out.println("Would you like to add a product or category? (1 -> Product, 2 -> Category)");
+                    int check = scanner.nextInt();
 
                     System.out.print("Enter item ID: ");
                     int id = scanner.nextInt();
@@ -39,7 +39,7 @@ public class Main {
                     System.out.print("Enter item name: ");
                     String name = scanner.nextLine(); // Now allows multi-word input
 
-                    if(check){
+                    if(check == 1){
                         System.out.print("Enter item price: ");
                         double price = scanner.nextDouble();
 
@@ -49,9 +49,11 @@ public class Main {
 
                         Product product = new Product(id, name, price, quantity);
                         inventory.addProduct(product);
-                    }else {
+                    }else if(check == 2) {
                         Category product = new Category(id, name);
                         inventory.addProduct(product);
+                    } else {
+                        System.out.println("Invalid option was chosen..");
                     }
 
                     break;
